@@ -27,6 +27,12 @@ int main()
         fopen_s(&rootADT, rootName, "rb");
         fopen_s(&outADT, outName, "r+b");
 
+        if (!outADT)
+        {
+            cout << "Cannot find specified file.\n";
+            return 0;
+        }
+
         fseek(outADT, 0x5C, SEEK_SET);              // first MCIN entry
 
         for (j = 0; j < 256; j++)
